@@ -1,0 +1,24 @@
+<!doctype html>
+<html ng-app>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+	var server = "http://192.168.1.201:8000";
+	function send_login()
+	{
+		var request = new XMLHttpRequest();
+		var login = document.getElementById("login").value;
+		request.open("POST", server, true);
+		//request.setRequestHeader('Access-Control-Allow-Origin', '*');
+		request.addEventListener("load", function() {
+			console.log("Done:", req.status);
+		});
+		request.send(login);
+	}
+</script>
+<input id="login"/>
+<input type="button" name="start_bt" value="START" onClick="send_login()"/>
+</body>
+</html>
